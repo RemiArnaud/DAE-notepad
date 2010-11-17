@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5A258A0-A411-4A69-9062-9ED943995169}</ProjectGuid>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Application\bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Application\bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Clipboard.htm" />
+    <Content Include="Contact.htm" />
+    <Content Include="FindReplace.htm" />
+    <Content Include="CustomEditors.htm" />
+    <Content Include="DragDrop.htm" />
+    <Content Include="images\colors.jpg" />
+    <Content Include="images\datetime.jpg" />
+    <Content Include="images\dragdrop.jpg" />
+    <Content Include="images\find.jpg" />
+    <Content Include="images\findxpath.jpg" />
+    <Content Include="images\intellisense.jpg" />
+    <Content Include="images\intellisense2.jpg" />
+    <Content Include="images\options.jpg" />
+    <Content Include="images\replace.jpg" />
+    <Content Include="images\schemas.png" />
+    <Content Include="images\screen.png" />
+    <Content Include="images\xmlicon.png" />
+    <Content Include="Intellisense.htm" />
+    <Content Include="Menus.htm" />
+    <Content Include="Options.htm" />
+    <Content Include="Schemas.htm" />
+    <Content Include="UI.htm" />
+    <Content Include="updates.htm" />
+    <Content Include="Validation.htm" />
+    <Content Include="Welcome.htm" />
+    <Content Include="Overview.htm" />
+    <Content Include="Keyboard.htm" />
+    <Content Include="Styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.bat" />
+    <None Include="help.chm" />
+    <None Include="Help.hhp" />
+    <None Include="Index.hhk" />
+    <None Include="TOC.hhc" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Target Name="Build">
+    <Message Importance="high" Text="Publishing: @(PublishFile)">
+    </Message>
+    <Copy SourceFiles="@(PublishFile)" DestinationFiles="@(PublishFile->'$(OutputPath)%(DestinationSubDirectory)%(Filename)%(Extension)')" SkipUnchangedFiles="true">
+      <Output TaskParameter="DestinationFiles" ItemName="FileWrites" />
+    </Copy>
+  </Target>
+  <Target Name="Rebuild" DependsOnTargets="Build">
+  </Target>
+  <Target Name="Clean">
+    <Delete Files="@(PublishFile->'$(OutputPath)%(DestinationSubDirectory)%(Filename)%(Extension)')" TreatErrorsAsWarnings="false">
+    </Delete>
+  </Target>
+</Project>
